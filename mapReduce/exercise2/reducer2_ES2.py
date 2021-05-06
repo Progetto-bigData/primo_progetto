@@ -47,7 +47,7 @@ for line in sys.stdin:
             list_of_information[2] = date
             list_of_information[3] = close_price
         
-        delta = list_of_information[1] - list_of_information[3]
+        delta = ((list_of_information[1] - list_of_information[3]) / list_of_information[3])*100
         list_of_information[4] = delta
         volume = list_of_information[5] + tx_volume
         list_of_information[5] = volume

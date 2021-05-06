@@ -45,7 +45,7 @@ WHERE historical_stock_prices.data = intermediate.data_max
 GROUP BY historical_stock_prices.ticker, YEAR(historical_stock_prices.data), intermediate.sector, historical_stock_prices.close
 HAVING YEAR(historical_stock_prices.data) > '2008' AND YEAR(historical_stock_prices.data) < '2019';
 
-SELECT close_min.year, close_min.sector, ((SUM(close_max.close) / SUM(close_min.close)-1)*100) AS diff_percentuale, MAX(close_max.close - close_min.close) AS maggiore_incremento, MAX(close_min.volume) AS volume_massimo
+SELECT close_min.year, close_min.sector, ((SUM(close_max.close) / SUM(close_min.close)-1)*100) AS diff_percentuale, MAX(((close_max.close - close_min.close)/close_min.close)*100) AS maggiore_incremento, MAX(close_min.volume) AS volume_massimo
 FROM 
     close_min
     JOIN
