@@ -8,7 +8,7 @@ for line in sys.stdin:
     
     line = line.strip()
     
-    key, delta1, delta2 = line.split("\t")  # key= (A, B, month)
+    key, delta1, delta2, name1, name2 = line.split("\t")  # key= (A, B, month)
     
     key = key[1:-1]
     key = key.split(",")
@@ -21,4 +21,4 @@ for line in sys.stdin:
     
     new_key = (tickerA, tickerB)
     
-    print("%s\t%s\t%f\t%f" %(new_key, month, delta1, delta2))
+    print("%s\t%s\t%f\t%f\t%s\t%s" %(new_key, month, delta1, delta2, name1, name2))
