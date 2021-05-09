@@ -10,7 +10,7 @@ for line in sys.stdin:
     
     line = line.strip()
     
-    key, month, delta1, delta2, name1, name2 = line.split("\t")  #key = (tickerA, tickerB)
+    key, month, delta1, delta2 = line.split("\t")  #key = (tickerA, tickerB)
     
     key = key[1:-1]
     key = key.split(",")
@@ -21,7 +21,7 @@ for line in sys.stdin:
     delta1 = float(delta1)
     delta2 = float(delta2)
     
-    new_key = (name1, name2)
+    new_key = (tickerA, tickerB)
     
     triple = [month, delta1, delta2]
     

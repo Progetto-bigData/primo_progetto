@@ -9,7 +9,7 @@ for line in sys.stdin:
     
     line = line.strip()
     
-    key, delta, name = line.split("\t")  #key = (A, month)   percentage_var name
+    key, delta = line.split("\t")  #key = (A, month)   percentage_var
     
     key = key[1:-1]
     key = key.split(",")
@@ -20,7 +20,7 @@ for line in sys.stdin:
     delta = float(delta)
         
 
-    print("%d\t%s\t%f\t%s" % (month, ticker, delta, name))  #month : ticker, delta
+    print("%d\t%s\t%f" % (month, ticker, delta))  #month : ticker, delta
     
         
     

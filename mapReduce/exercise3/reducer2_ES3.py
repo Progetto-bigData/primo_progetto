@@ -12,7 +12,7 @@ for line in sys.stdin:
     
     line = line.strip() 
     
-    month, ticker, delta, name = line.split("\t") 
+    month, ticker, delta = line.split("\t") 
     
     month = int(month)
     delta = float(delta)
@@ -24,7 +24,7 @@ for line in sys.stdin:
     else:
         list_of_information = result[key]
     
-    list_of_information.append([ticker, delta, name])
+    list_of_information.append([ticker, delta])
     result[key] = list_of_information
     
     
@@ -35,4 +35,4 @@ for key, value in result.items():
                 delta = abs(e1[1] - e2[1])
                 if delta <= THRESHOLD:
                     new_key = (e1[0], e2[0], key)
-                    print("%s\t%f\t%f\t%s\t%s" %(new_key, e1[1],e2[1],e1[2],e2[2]))   #tickerA, tickerB, month : delta1, delta2, nameA, nameB
+                    print("%s\t%f\t%f" %(new_key, e1[1],e2[1]))   #tickerA, tickerB, month : delta1, delta2

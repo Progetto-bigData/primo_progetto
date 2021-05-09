@@ -34,8 +34,6 @@ for line in sys.stdin:
         if LOWER_DATE_LIMIT <= date <= UPPER_DATE_LIMIT:
             new_date = date
         
-            print("%s\t%s\t%f\t%s" % (ticker, new_date, close_price, "UNKNOWN_VALUE"))
+            print("%s\t%s\t%f" % (ticker, new_date, close_price))
     except ValueError:
-        ticker = words[0]
-        name = words[2]
-        print("%s\t%s\t%s\t%s" %(ticker, "UNKNOWN_VALUE", "UNKNOWN_VALUE", name))
+        pass
