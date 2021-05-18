@@ -61,7 +61,7 @@ for line in sys.stdin:
  # max gg consecutivi in cui l'azione è cresciuta
 result = {}
 
-for key, value in ticker_2_info.items():
+for key, value in dict(sorted(ticker_2_info.items(), key = lambda item: item[1][1], reverse = True)).items():
     ticker = key
     first_quotation_date = value[0]
     last_quotation_date = value[1]
@@ -70,16 +70,10 @@ for key, value in ticker_2_info.items():
     max_high_price = value[5]
     result_value = [first_quotation_date, last_quotation_date, percentage_var, min_low_price, max_high_price]
     result[ticker] = result_value
-    #print("%s\t%s\t%s\t%f\t%f\t%f" % (ticker, first_quotation_date, last_quotation_date, percentage_var, min_low_price, max_high_price))
+    print("%s\t%s\t%s\t%f\t%f\t%f" % (ticker, first_quotation_date, last_quotation_date, percentage_var, min_low_price, max_high_price))
 
-for key,value in dict(sorted(result.items(), key=lambda item: item[1][1], reverse = True)).items():
-    print("%s\t%s\t%s\t%f\t%f\t%f" % (key, value[0], value[1], value[2], value[3], value[4]))
-
-
-
-    
-   
-    
+#for key,value in dict(sorted(result.items(), key=lambda item: item[1][1], reverse = True)).items():
+#    print("%s\t%s\t%s\t%f\t%f\t%f" % (key, value[0], value[1], value[2], value[3], value[4]))
 
 
 
